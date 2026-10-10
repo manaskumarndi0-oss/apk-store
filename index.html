@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta name="theme-color" content="#0a0e1a">
+<title>Abhi Knowledge · APK Store</title>
+<meta name="description" content="Free APK downloads. Latest apps, tools & games directly from Abhi Knowledge.">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,'Segoe UI',sans-serif;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{background:radial-gradient(circle at 15% 5%,rgba(239,68,68,.12),transparent 45%),radial-gradient(circle at 85% 95%,rgba(99,102,241,.12),transparent 45%),linear-gradient(180deg,#0a0e1a,#0f1422);color:#e8eaf2;min-height:100vh;padding-bottom:30px;-webkit-font-smoothing:antialiased}
+
+/* HEADER */
+.header{padding:16px 18px;background:rgba(15,20,35,.9);border-bottom:1px solid rgba(255,255,255,.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{display:flex;align-items:center;gap:11px;min-width:0}
+.logo-img{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#b91c1c);display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;box-shadow:0 4px 12px rgba(239,68,68,.4),0 0 0 2px rgba(255,255,255,.1)}
+.logo-text{min-width:0}
+.logo-title{font-size:.95rem;font-weight:800;color:#fff;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.logo-tag{font-size:.62rem;color:rgba(255,255,255,.45);font-weight:600;letter-spacing:.05em;margin-top:2px}
+.yt-btn{padding:8px 13px;background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;border:none;border-radius:10px;font-size:.75rem;font-weight:800;cursor:pointer;text-decoration:none;display:flex;align-items:center;gap:5px;box-shadow:0 4px 12px rgba(239,68,68,.35);transition:.2s;flex-shrink:0}
+.yt-btn:active{transform:scale(.96)}
+
+/* HERO */
+.hero{padding:32px 20px 20px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);border-radius:20px;font-size:.62rem;font-weight:800;color:#f87171;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:#ef4444;box-shadow:0 0 8px #ef4444;animation:blink 1.5s infinite}
+@keyframes blink{50%{opacity:.4}}
+.hero h1{font-size:1.65rem;font-weight:900;letter-spacing:-.03em;background:linear-gradient(135deg,#fff,#f87171 60%,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:8px;line-height:1.15}
+.hero p{font-size:.83rem;color:rgba(255,255,255,.5);font-weight:500;line-height:1.55;max-width:340px;margin:0 auto}
+
+/* SEARCH */
+.search-wrap{padding:16px 20px 0;max-width:600px;margin:0 auto}
+.search-box{display:flex;align-items:center;gap:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px 16px;transition:.2s}
+.search-box:focus-within{border-color:rgba(239,68,68,.5);background:rgba(255,255,255,.06)}
+.search-box input{flex:1;background:transparent;border:none;outline:none;color:#fff;font-size:.9rem;font-family:inherit}
+.search-box input::placeholder{color:rgba(255,255,255,.3)}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:16px 20px 0;max-width:600px;margin:0 auto}
+.stat{background:rgba(20,26,44,.6);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px 8px;text-align:center;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+.stat-v{font-size:1.15rem;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1;margin-bottom:4px}
+.stat-v.red{color:#f87171}
+.stat-v.green{color:#4ade80}
+.stat-l{font-size:.58rem;color:rgba(255,255,255,.4);font-weight:800;letter-spacing:.15em;text-transform:uppercase}
+
+/* SECTION */
+.section{padding:24px 20px 0;max-width:600px;margin:0 auto}
+.sec-title{display:flex;align-items:center;gap:10px;font-size:.7rem;font-weight:800;color:rgba(255,255,255,.35);letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px}
+.sec-title::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,.08),transparent)}
+
+/* CATEGORIES */
+.cats{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:14px;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.cats::-webkit-scrollbar{display:none}
+.cat{padding:8px 16px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer;white-space:nowrap;transition:.2s;flex-shrink:0}
+.cat:hover{border-color:rgba(239,68,68,.3);color:#fff}
+.cat.active{background:linear-gradient(135deg,#ef4444,#b91c1c);border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(239,68,68,.35)}
+
+/* APK CARD */
+.apk-card{background:linear-gradient(180deg,rgba(24,30,52,.85),rgba(15,20,35,.85));border:1px solid rgba(255,255,255,.07);border-radius:18px;padding:16px;margin-bottom:12px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:.25s cubic-bezier(.2,1,.4,1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(255,255,255,.04) inset,0 8px 24px -12px rgba(0,0,0,.6);position:relative;overflow:hidden;text-decoration:none;color:inherit}
+.apk-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,#ef4444,#b91c1c);opacity:0;transition:.25s}
+.apk-card:active{transform:translateY(-2px) scale(.995);border-color:rgba(239,68,68,.3)}
+.apk-card:hover::before{opacity:1}
+.apk-icon{width:58px;height:58px;border-radius:14px;background:linear-gradient(135deg,#1a2035,#2a3050);display:flex;align-items:center;justify-content:center;font-size:1.8rem;flex-shrink:0;border:1px solid rgba(255,255,255,.08);position:relative}
+.apk-icon .badge{position:absolute;bottom:-4px;right:-4px;background:linear-gradient(135deg,#4ade80,#22c55e);color:#0a0e1a;font-size:.5rem;font-weight:900;padding:2px 5px;border-radius:5px;border:2px solid #0a0e1a;letter-spacing:.02em}
+.apk-body{flex:1;min-width:0}
+.apk-name{font-size:.95rem;font-weight:800;color:#fff;letter-spacing:-.015em;margin-bottom:5px;line-height:1.25}
+.apk-meta{display:flex;align-items:center;gap:7px;font-size:.7rem;color:rgba(255,255,255,.4);font-weight:600;flex-wrap:wrap}
+.apk-meta .dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.2)}
+.apk-meta .size{color:#4ade80;font-weight:800}
+.apk-meta .cat-tag{color:#60a5fa;font-weight:800}
+.apk-arrow{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:800;flex-shrink:0;box-shadow:0 4px 12px rgba(239,68,68,.35);transition:.25s}
+.apk-card:hover .apk-arrow{transform:scale(1.08)}
+
+.empty{text-align:center;padding:40px 20px;color:rgba(255,255,255,.3);font-size:.85rem}
+
+/* FOOTER */
+.footer{padding:36px 20px 20px;text-align:center;max-width:600px;margin:0 auto}
+.footer-yt{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;text-decoration:none;border-radius:14px;font-weight:800;font-size:.88rem;box-shadow:0 8px 24px rgba(239,68,68,.4);transition:.2s;margin-bottom:20px}
+.footer-yt:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(239,68,68,.5)}
+.footer-note{font-size:.7rem;color:rgba(255,255,255,.3);line-height:1.7}
+.footer-note b{color:rgba(255,255,255,.5)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(5,8,16,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;z-index:999}
+.modal.show{display:flex;animation:fadeIn .25s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal-card{background:linear-gradient(180deg,#1a2035,#0f1422);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:24px 22px;max-width:400px;width:100%;box-shadow:0 30px 80px rgba(0,0,0,.8);animation:slideUp .35s cubic-bezier(.2,1,.4,1);max-height:90vh;overflow-y:auto}
+@keyframes slideUp{from{transform:translateY(20px) scale(.95);opacity:0}to{transform:none;opacity:1}}
+.modal-icon{width:72px;height:72px;border-radius:18px;margin:0 auto 16px;background:linear-gradient(135deg,#1a2035,#2a3050);display:flex;align-items:center;justify-content:center;font-size:2.4rem;border:1px solid rgba(255,255,255,.1)}
+.modal-name{font-size:1.15rem;font-weight:900;color:#fff;text-align:center;margin-bottom:4px}
+.modal-cat{font-size:.75rem;color:rgba(255,255,255,.5);text-align:center;font-weight:600;margin-bottom:18px}
+.modal-info{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:16px}
+.modal-info-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:10px;padding:10px;text-align:center}
+.modal-info-item .l{font-size:.58rem;color:rgba(255,255,255,.4);font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px}
+.modal-info-item .v{font-size:.9rem;font-weight:800;color:#fff}
+.steps{background:rgba(20,26,44,.5);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px;margin-bottom:16px}
+.steps-title{font-size:.65rem;color:rgba(255,255,255,.4);font-weight:800;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.step{display:flex;gap:10px;align-items:flex-start;padding:6px 0;font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.5}
+.step-num{width:20px;height:20px;border-radius:6px;flex-shrink:0;background:linear-gradient(135deg,#ef4444,#b91c1c);color:#fff;font-size:.65rem;font-weight:900;display:flex;align-items:center;justify-content:center;margin-top:1px}
+.dl-btn{width:100%;padding:16px;background:linear-gradient(135deg,#4ade80,#22c55e);color:#0a0e1a;border:none;border-radius:14px;font-family:inherit;font-size:1rem;font-weight:900;cursor:pointer;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(74,222,128,.35);transition:.2s;letter-spacing:.02em}
+.dl-btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(74,222,128,.5)}
+.dl-btn:active{transform:scale(.98)}
+.modal-close{width:100%;padding:12px;background:transparent;color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.08);border-radius:12px;font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;margin-top:10px}
+.modal-close:hover{color:#fff;border-color:rgba(255,255,255,.2)}
+</style>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-LS3RDLXGBR"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-LS3RDLXGBR');
+</script>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-img">🎬</div>
+    <div class="logo-text">
+      <div class="logo-title">Abhi Knowledge</div>
+      <div class="logo-tag">@AbhiKnowledgeOdisha</div>
+    </div>
+  </div>
+  <a class="yt-btn" href="https://youtube.com/@AbhiKnowledgeOdisha" target="_blank">▶ Subscribe</a>
+</div>
+
+<div class="hero">
+  <div class="hero-badge">Free APK Downloads</div>
+  <h1>Latest Apps,<br>Direct Download</h1>
+  <p>YouTube channel ke sabhi APKs yahan milenge — 100% free, safe, fast</p>
+</div>
+
+<div class="search-wrap">
+  <div class="search-box">
+    <span style="opacity:.5">🔍</span>
+    <input type="text" id="search" placeholder="APK search karo..." oninput="renderAPKs()">
+  </div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="stat-v red" id="statApks">0</div><div class="stat-l">APKs</div></div>
+  <div class="stat"><div class="stat-v green" id="statDl">0</div><div class="stat-l">Downloads</div></div>
+  <div class="stat"><div class="stat-v">100%</div><div class="stat-l">Safe</div></div>
+</div>
+
+<div class="section">
+  <div class="sec-title">📥 All APKs</div>
+  <div class="cats" id="cats"></div>
+  <div id="apkList"></div>
+  <div class="empty" id="empty" style="display:none">Koi APK nahi mila. Search change karo.</div>
+</div>
+
+<div class="footer">
+  <a class="footer-yt" href="https://youtube.com/@AbhiKnowledgeOdisha" target="_blank">▶ YouTube Subscribe Karo</a>
+  <div class="footer-note">
+    <b>Disclaimer:</b> Sabhi APKs public sources se hain. Kisi bhi app ka copyright humare paas nahi hai.<br>
+    Har APK apni responsibility pe install karo.
+  </div>
+</div>
+
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-card">
+    <div class="modal-icon" id="mIcon">📱</div>
+    <div class="modal-name" id="mName">App Name</div>
+    <div class="modal-cat" id="mCat">Category</div>
+    <div class="modal-info">
+      <div class="modal-info-item"><div class="l">Version</div><div class="v" id="mVer">1.0</div></div>
+      <div class="modal-info-item"><div class="l">Size</div><div class="v" id="mSize">25 MB</div></div>
+    </div>
+    <div class="steps">
+      <div class="steps-title">📖 Install Kaise Kare</div>
+      <div class="step"><div class="step-num">1</div><div>Download button dabाओ</div></div>
+      <div class="step"><div class="step-num">2</div><div>APK phone me save hogi</div></div>
+      <div class="step"><div class="step-num">3</div><div>Settings → Unknown apps allow karo</div></div>
+      <div class="step"><div class="step-num">4</div><div>APK install karke kholo</div></div>
+    </div>
+    <a class="dl-btn" id="mDownload" href="#" download>⬇ Download APK</a>
+    <button class="modal-close" onclick="closeModal()">Cancel</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   APK LIST — YAHAN APNE APKS ADD KARO
+   ============================================================ */
+let APKS = [];
+
+async function loadAPKs(){
+  try {
+    const r = await fetch('apks.json?v=' + Date.now());
+    APKS = await r.json();
+  } catch(e){
+    APKS = [];
+  }
+  renderCats();
+  renderAPKs();
+}
+
+let currentCat = 'All';
+let currentApk = null;
+
+/* ============================================================
+   CATEGORIES
+   ============================================================ */
+function renderCats(){
+  const cats = ['All', ...new Set(APKS.map(a => a.category))];
+  document.getElementById('cats').innerHTML = cats.map(c =>
+    `<div class="cat ${c === currentCat ? 'active' : ''}" onclick="setCat('${c}')">${c}</div>`
+  ).join('');
+}
+
+function setCat(c){
+  currentCat = c;
+  renderCats();
+  renderAPKs();
+}
+
+/* ============================================================
+   APK CARDS
+   ============================================================ */
+function renderAPKs(){
+  const search = (document.getElementById('search').value || '').toLowerCase();
+  const filtered = APKS.filter(a => {
+    if(currentCat !== 'All' && a.category !== currentCat) return false;
+    if(search && !a.name.toLowerCase().includes(search) && !a.category.toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  const box = document.getElementById('apkList');
+  const empty = document.getElementById('empty');
+
+  if(filtered.length === 0){
+    box.innerHTML = '';
+    empty.style.display = 'block';
+  } else {
+    empty.style.display = 'none';
+    box.innerHTML = filtered.map(a => {
+      const i = APKS.indexOf(a);
+      return `
+        <div class="apk-card" onclick="openModal(${i})">
+          <div class="apk-icon">${a.icon}<span class="badge">v${a.version}</span></div>
+          <div class="apk-body">
+            <div class="apk-name">${a.name}</div>
+            <div class="apk-meta">
+              <span class="cat-tag">${a.category}</span>
+              <span class="dot"></span>
+              <span class="size">${a.size}</span>
+            </div>
+          </div>
+          <div class="apk-arrow">⬇</div>
+        </div>
+      `;
+    }).join('');
+  }
+  document.getElementById('statApks').textContent = APKS.length;
+}
+
+/* ============================================================
+   MODAL
+   ============================================================ */
+function openModal(i){
+  currentApk = APKS[i];
+  document.getElementById('mIcon').textContent = currentApk.icon;
+  document.getElementById('mName').textContent = currentApk.name;
+  document.getElementById('mCat').textContent = currentApk.category;
+  document.getElementById('mVer').textContent = currentApk.version;
+  document.getElementById('mSize').textContent = currentApk.size;
+  document.getElementById('mDownload').href = currentApk.file;
+  document.getElementById('modal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+
+/* ============================================================
+   DOWNLOAD COUNTER
+   ============================================================ */
+let dl = parseInt(localStorage.getItem('apk_downloads') || '0');
+document.getElementById('statDl').textContent = dl;
+
+document.getElementById('mDownload').addEventListener('click', () => {
+  dl++;
+  localStorage.setItem('apk_downloads', dl);
+  document.getElementById('statDl').textContent = dl;
+});
+
+/* ============================================================
+   PWA
+   ============================================================ */
+if('serviceWorker' in navigator){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(e => console.log(e));
+  });
+}
+
+/* ============================================================
+   BOOT
+   ============================================================ */
+loadAPKs();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": "moviebox",
+    "name": "Moviebox",
+    "icon": "🎬",
+    "category": "Other",
+    "version": "4.0.01.0813.03",
+    "size": "70.1 MB",
+    "file": "apks/moviebox.apk"
+  },
+  {
+    "id": "shelter",
+    "name": "Shelter",
+    "icon": "💼",
+    "category": "Tools",
+    "version": "1.9.1",
+    "size": "2.6 MB",
+    "file": "apks/shelter.apk"
+  }
+]
